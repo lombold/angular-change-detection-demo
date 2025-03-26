@@ -11,13 +11,23 @@ import {BaseComponent} from './base.component';
     NgClass
   ],
   template: `
-    <div class="component" [ngClass]="getClasses()">
-      {{ getComponentName() }}
-      <button type="button" (click)="log()">Update</button>
-    </div>
-    <div class="container">
-      <app-top/>
-    </div>
+    <main>
+      <div class="component" [ngClass]="getClasses()">
+        {{ getComponentName() }}
+        <button type="button" (click)="log()">Update</button>
+      </div>
+      <div class="container">
+        <app-top/>
+      </div>
+      <div class="readme">
+        <h3>Zone</h3>
+        <p>Watches:</p>
+        <ul>
+          <li>UI Events (e.g. onclick)</li>
+          <li>Tasks ending (e.g. setTimout, setInterval, finshed XHR)</li>
+        </ul>
+      </div>
+    </main>
   `,
   styles: [],
   standalone: true,
