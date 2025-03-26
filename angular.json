@@ -12,6 +12,9 @@
         "@schematics/angular:component": {
           "inlineTemplate": true,
           "inlineStyle": true,
+          "skipTests": true,
+          "displayBlock": false,
+          "changeDetection": "OnPush",
           "style": "scss"
         }
       },

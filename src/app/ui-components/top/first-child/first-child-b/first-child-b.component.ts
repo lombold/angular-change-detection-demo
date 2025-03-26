@@ -1,13 +1,10 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {TopComponent} from './ui-components/top/top.component';
 import {NgClass} from '@angular/common';
-import {BaseComponent} from './base.component';
-
+import {BaseComponent} from '../../../../base.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-first-child-b',
   imports: [
-    TopComponent,
     NgClass
   ],
   template: `
@@ -15,16 +12,12 @@ import {BaseComponent} from './base.component';
       {{ getComponentName() }}
       <button type="button" (click)="log()">Update</button>
     </div>
-    <div class="container">
-      <app-top/>
-    </div>
   `,
-  styles: [],
-  standalone: true,
+  styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent extends BaseComponent {
+export class FirstChildBComponent extends BaseComponent {
   constructor() {
-    super('AppComponent');
+    super('FirstChildBComponent');
   }
 }
