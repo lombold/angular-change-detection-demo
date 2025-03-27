@@ -1,14 +1,12 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {FirstChildComponent} from './first-child/first-child.component';
-import {SecondChildComponent} from './second-child/second-child.component';
+import {SimpleChildComponent} from './simple-child/simple-child.component';
 import {NgClass} from '@angular/common';
-import {BaseComponent} from '../../base.component';
+import {BaseComponent} from '../../../../../../base.component';
 
 @Component({
-  selector: 'app-top',
+  selector: 'app-first-child-a',
   imports: [
-    FirstChildComponent,
-    SecondChildComponent,
+    SimpleChildComponent,
     NgClass
   ],
   template: `
@@ -16,16 +14,16 @@ import {BaseComponent} from '../../base.component';
       {{ getComponentName() }}
       <button type="button" (click)="log()">Update</button>
     </div>
+
     <div class="container">
-      <app-first-child/>
-      <app-second-child/>
+      <app-simple-child/>
     </div>
   `,
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TopComponent extends BaseComponent {
+export class FirstChildAComponent extends BaseComponent {
   constructor() {
-    super('TopComponent');
+    super('FirstChildAComponent');
   }
 }

@@ -1,14 +1,14 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {TopComponent} from './ui-components/top/top.component';
 import {NgClass} from '@angular/common';
 import {BaseComponent} from './base.component';
+import {RouterOutlet} from '@angular/router';
 
 
 @Component({
   selector: 'app-root',
   imports: [
-    TopComponent,
-    NgClass
+    NgClass,
+    RouterOutlet
   ],
   template: `
     <main>
@@ -17,7 +17,7 @@ import {BaseComponent} from './base.component';
         <button type="button" (click)="log()">Update</button>
       </div>
       <div class="container">
-        <app-top/>
+        <router-outlet/>
       </div>
       <div class="readme">
         <h3>Zone</h3>

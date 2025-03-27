@@ -1,9 +1,9 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {NgClass} from '@angular/common';
-import {BaseComponent} from '../../../base.component';
+import {BaseComponent} from '../../../../../../base.component';
 
 @Component({
-  selector: 'app-second-child',
+  selector: 'app-first-child-b',
   imports: [
     NgClass
   ],
@@ -11,13 +11,16 @@ import {BaseComponent} from '../../../base.component';
     <div class="component" [ngClass]="getClasses()">
       {{ getComponentName() }}
       <button type="button" (click)="log()">Update</button>
+      {{ counter }}
     </div>
   `,
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SecondChildComponent extends BaseComponent {
+export class FirstChildBComponent extends BaseComponent {
+  @Input() public counter = 0;
+
   constructor() {
-    super('SecondChildComponent');
+    super('FirstChildBComponent');
   }
 }

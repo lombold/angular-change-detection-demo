@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {NgClass} from '@angular/common';
-import {BaseComponent} from '../../../../../base.component';
+import {BaseComponent} from '../../../../../../../base.component';
 
 @Component({
   selector: 'app-simple-child',
