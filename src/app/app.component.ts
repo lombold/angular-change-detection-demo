@@ -1,14 +1,15 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {NgClass} from '@angular/common';
 import {BaseComponent} from './base.component';
-import {RouterOutlet} from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router';
 
 
 @Component({
   selector: 'app-root',
   imports: [
     NgClass,
-    RouterOutlet
+    RouterOutlet,
+    RouterLink
   ],
   template: `
     <main>
@@ -16,16 +17,12 @@ import {RouterOutlet} from '@angular/router';
         {{ getComponentName() }}
         <button type="button" (click)="log()">Update</button>
       </div>
+      <nav>
+        <a [routerLink]="'zone-onpush'">Zone With push</a>
+        <a [routerLink]="'zone-default'">Zone With default</a>
+      </nav>
       <div class="container">
         <router-outlet/>
-      </div>
-      <div class="readme">
-        <h3>Zone</h3>
-        <p>Watches:</p>
-        <ul>
-          <li>UI Events (e.g. onclick)</li>
-          <li>Tasks ending (e.g. setTimout, setInterval, finshed XHR)</li>
-        </ul>
       </div>
     </main>
   `,

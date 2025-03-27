@@ -1,3 +1,28 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  gab: 1rem;
+  margin: 1rem;
+
+  a {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    transition: 0.3s;
+
+    &:hover {
+      background: lightblue;
+    }
+
+    &:active {
+      background: darkcyan;
+    }
+  }
+}
+
 .container {
   display: flex;
   justify-content: center;
