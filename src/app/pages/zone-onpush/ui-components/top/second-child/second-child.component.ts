@@ -1,23 +1,32 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {NgClass} from '@angular/common';
+import {AsyncPipe, NgClass} from '@angular/common';
 import {BaseComponent} from '../../../../../base.component';
+import {StateService} from '../../../../../services/state.service';
 
 @Component({
   selector: 'app-second-child',
   imports: [
-    NgClass
+    NgClass,
+    AsyncPipe
   ],
   template: `
     <div class="component" [ngClass]="getClasses()">
       {{ getComponentName() }}
       <button type="button" (click)="log()">Update</button>
+      <pre>
+        State Service Values:
+        Plain: {{ stateService.valuePlain }}
+        Signal: {{ stateService.valueSignal() }}
+        Wrapped: {{ stateService.valueWrapped.value }}
+        Observable: {{ stateService.valueSubject$$.asObservable() | async }}
+      </pre>
     </div>
   `,
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SecondChildComponent extends BaseComponent {
-  constructor() {
+  constructor(public readonly stateService: StateService) {
     super('SecondChildComponent');
   }
 }

@@ -1,10 +1,10 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {AsyncPipe, NgClass} from '@angular/common';
-import {BaseComponent} from '../../../../../base.component';
-import {StateService} from '../../../../../services/state.service';
+import {BaseComponent} from '../../../../../../../base.component';
+import {StateService} from '../../../../../../../services/state.service';
 
 @Component({
-  selector: 'app-second-child',
+  selector: 'app-simple-child',
   imports: [
     NgClass,
     AsyncPipe
@@ -21,12 +21,13 @@ import {StateService} from '../../../../../services/state.service';
         Observable: {{ stateService.valueSubject$$.asObservable() | async }}
       </pre>
     </div>
+
   `,
   styles: ``,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SecondChildComponent extends BaseComponent {
+export class SimpleChildComponent extends BaseComponent {
   constructor(public readonly stateService: StateService) {
-    super('SecondChildComponent');
+    super('SimpleChildComponent');
   }
 }

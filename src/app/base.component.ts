@@ -3,8 +3,7 @@ export class BaseComponent {
 
   constructor(private readonly componentName: string) {
   }
-
-
+  
   getComponentName() {
     console.log(this.componentName);
     return this.componentName;
