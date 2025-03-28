@@ -1,8 +1,11 @@
 nav {
   display: flex;
   flex-direction: row;
-  gab: 1rem;
-  margin: 1rem;
+  gap: 1rem;
+  margin: 0 1rem;
+  padding: 1rem;
+
+  background-color: lightgray;
 
   a {
     display: flex;
@@ -19,6 +22,10 @@ nav {
 
     &:active {
       background: darkcyan;
+    }
+
+    &.active {
+      background: darkgray;
     }
   }
 }

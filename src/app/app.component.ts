@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {NgClass} from '@angular/common';
 import {BaseComponent} from './base.component';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 
 
 @Component({
@@ -9,7 +9,8 @@ import {RouterLink, RouterOutlet} from '@angular/router';
   imports: [
     NgClass,
     RouterOutlet,
-    RouterLink
+    RouterLink,
+    RouterLinkActive
   ],
   template: `
     <main>
@@ -18,8 +19,8 @@ import {RouterLink, RouterOutlet} from '@angular/router';
         <button type="button" (click)="log()">Update</button>
       </div>
       <nav>
-        <a [routerLink]="'zone-onpush'">Zone With push</a>
-        <a [routerLink]="'zone-default'">Zone With default</a>
+        <a [routerLink]="'zone-onpush'" routerLinkActive="active">Zone With push</a>
+        <a [routerLink]="'zone-default'" routerLinkActive="active">Zone With default</a>
       </nav>
       <div class="container">
         <router-outlet/>
