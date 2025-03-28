@@ -3,6 +3,7 @@ import {FirstChildAComponent} from './first-child-a/first-child-a.component';
 import {FirstChildBComponent} from './first-child-b/first-child-b.component';
 import {NgClass} from '@angular/common';
 import {BaseComponent} from '../../../../../base.component';
+import {StateService} from '../../../../../services/state.service';
 
 @Component({
   selector: 'app-first-child',
@@ -20,10 +21,14 @@ import {BaseComponent} from '../../../../../base.component';
         </div>
         <div class="button-list">
           <button type="button" (click)="log()" class="secondary">Update</button>
-          <button type="button" (click)="toggleInterval()">{{ intervalId ? 'Stop' : 'Start' }} Interval</button>
+          @if (stateService.showInterval()) {
+            <button type="button" (click)="toggleInterval()">{{ intervalId ? 'Stop' : 'Start' }} Interval</button>
+          }
         </div>
       </div>
-      <span class="badge">{{ counter }}</span>
+      @if (stateService.showInterval()) {
+        <span class="badge">{{ counter }}</span>
+      }
     </div>
     <div class="container">
       <app-first-child-a/>
@@ -37,7 +42,7 @@ export class FirstChildComponent extends BaseComponent {
   public counter = 0;
   public intervalId?: number;
 
-  constructor(private readonly cd: ChangeDetectorRef) {
+  constructor(public readonly stateService: StateService, private readonly cd: ChangeDetectorRef) {
     super('FirstChildComponent');
   }
 

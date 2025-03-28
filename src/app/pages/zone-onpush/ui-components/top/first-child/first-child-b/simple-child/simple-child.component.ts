@@ -20,13 +20,15 @@ import {StateService} from '../../../../../../../services/state.service';
           <button type="button" (click)="log()" class="secondary">Update</button>
         </div>
       </div>
-      <pre>
-        State Service Values:
-        Plain: {{ stateService.valuePlain }}
-        Signal: {{ stateService.valueSignal() }}
-        Wrapped: {{ stateService.valueWrapped.value }}
-        Observable: {{ stateService.valueSubject$$.asObservable() | async }}
-      </pre>
+      @if (stateService.showStateInfo()) {
+        <pre>
+          State Service Values:
+          Plain: {{ stateService.valuePlain }} {{ stateService.showMoreInfo() ? '{{ valuePlain }}' : '' }}
+          Signal: {{ stateService.valueSignal() }} {{ stateService.showMoreInfo() ? '{{ valueSignal() }}' : '' }}
+          Wrapped: {{ stateService.valueWrapped.value }} {{ stateService.showMoreInfo() ? '{{ valueWrapped.value }}' : '' }}
+          Observable: {{ stateService.valueSubject$$.asObservable() | async }} {{ stateService.showMoreInfo() ? '{{ valueSubject$$ | async }}' : '' }}
+        </pre>
+      }
     </div>
 
   `,

@@ -22,19 +22,21 @@ import {StateService} from '../../../../../../services/state.service';
           <button type="button" (click)="log()" class="secondary">Update</button>
         </div>
       </div>
-      <div class="button-list">
-        <button type="button" (click)="stateService.incrementPlain()">Plain++</button>
-        <button type="button" (click)="stateService.incrementSignal()">Signal++</button>
-        <button type="button" (click)="stateService.incrementWrapped()">Wrapped++</button>
-        <button type="button" (click)="stateService.incrementSubject()">Subject++</button>
-      </div>
-      <pre>
-        State Service Values:
-        Plain: {{ stateService.valuePlain }}
-        Signal: {{ stateService.valueSignal() }}
-        Wrapped: {{ stateService.valueWrapped.value }}
-        Observable: {{ stateService.valueSubject$$.asObservable() | async }}
-      </pre>
+      @if (stateService.showStateInfo()) {
+        <div class="button-list">
+          <button type="button" (click)="stateService.incrementPlain()">Plain++</button>
+          <button type="button" (click)="stateService.incrementSignal()">Signal++</button>
+          <button type="button" (click)="stateService.incrementWrapped()">Wrapped++</button>
+          <button type="button" (click)="stateService.incrementSubject()">Subject++</button>
+        </div>
+        <pre>
+          State Service Values:
+          Plain: {{ stateService.valuePlain }} {{ stateService.showMoreInfo() ? '{{ valuePlain }}' : '' }}
+          Signal: {{ stateService.valueSignal() }} {{ stateService.showMoreInfo() ? '{{ valueSignal() }}' : '' }}
+          Wrapped: {{ stateService.valueWrapped.value }} {{ stateService.showMoreInfo() ? '{{ valueWrapped.value }}' : '' }}
+          Observable: {{ stateService.valueSubject$$.asObservable() | async }} {{ stateService.showMoreInfo() ? '{{ valueSubject$$ | async }}' : '' }}
+        </pre>
+      }
     </div>
 
     <div class="container">

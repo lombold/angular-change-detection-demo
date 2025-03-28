@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {NgClass} from '@angular/common';
 import {BaseComponent} from '../../../../../../base.component';
 import {SimpleChildComponent} from './simple-child/simple-child.component';
+import {StateService} from '../../../../../../services/state.service';
 
 @Component({
   selector: 'app-first-child-b',
@@ -20,7 +21,9 @@ import {SimpleChildComponent} from './simple-child/simple-child.component';
           <button type="button" (click)="log()" class="secondary">Update</button>
         </div>
       </div>
-      <span class="badge">{{ counter }}</span>
+      @if (stateService.showInterval()) {
+        <span class="badge">{{ counter }}</span>
+      }
     </div>
 
     <div class="container">
@@ -33,7 +36,7 @@ import {SimpleChildComponent} from './simple-child/simple-child.component';
 export class FirstChildBComponent extends BaseComponent {
   @Input() public counter = 0;
 
-  constructor() {
+  constructor(public readonly stateService: StateService) {
     super('FirstChildBComponent');
   }
 }

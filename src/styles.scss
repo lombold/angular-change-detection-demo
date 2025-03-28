@@ -2,6 +2,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f0f0f0;
   color: #333;
+  transition: all 0.3s;
 }
 
 nav {
@@ -116,7 +117,7 @@ button {
 }
 
 pre {
-  margin: 0px;
+  margin: 0;
   background-color: lightyellow;
   padding: 1rem;
   border: orange 6px dotted;
