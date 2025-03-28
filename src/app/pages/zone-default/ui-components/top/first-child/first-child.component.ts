@@ -12,12 +12,18 @@ import {BaseComponent} from '../../../../../base.component';
     NgClass
   ],
   template: `
-    <div class="component" [ngClass]="getClasses()">
+    <div class="component flex-col" [ngClass]="getClasses()">
+      <span class="badge">{{ counter }}</span>
       <div class="line"></div>
-      {{ getComponentName() }}
-      <button type="button" (click)="log()">Update</button>
-      <button type="button" (click)="toggleInterval()">{{ intervalId ? 'Stop' : 'Start' }} Interval</button>
-      {{ counter }}
+      <div class="flex-row flex-justify-between flex-align-center">
+        <div>
+          {{ getComponentName() }}
+        </div>
+        <div class="button-list">
+          <button type="button" (click)="log()" class="secondary">Update</button>
+          <button type="button" (click)="toggleInterval()">{{ intervalId ? 'Stop' : 'Start' }} Interval</button>
+        </div>
+      </div>
     </div>
     <div class="container">
       <app-first-child-a/>

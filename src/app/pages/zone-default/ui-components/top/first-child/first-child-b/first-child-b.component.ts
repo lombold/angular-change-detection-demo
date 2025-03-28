@@ -10,11 +10,17 @@ import {SimpleChildComponent} from './simple-child/simple-child.component';
     SimpleChildComponent
   ],
   template: `
-    <div class="component" [ngClass]="getClasses()">
+    <div class="component flex-col" [ngClass]="getClasses()">
       <div class="line"></div>
-      {{ getComponentName() }}
-      <button type="button" (click)="log()">Update</button>
-      {{ counter }}
+      <div class="flex-row flex-justify-between flex-align-center">
+        <div>
+          {{ getComponentName() }}
+        </div>
+        <div class="button-list">
+          <button type="button" (click)="log()" class="secondary">Update</button>
+        </div>
+      </div>
+      <span class="badge">{{ counter }}</span>
     </div>
     <div class="container">
       <app-simple-child/>

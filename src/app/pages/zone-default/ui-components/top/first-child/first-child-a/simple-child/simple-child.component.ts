@@ -8,14 +8,25 @@ import {BaseComponent} from '../../../../../../../base.component';
     NgClass
   ],
   template: `
-    <div class="component" [ngClass]="getClasses()">
+    <div class="component flex-col" [ngClass]="getClasses()">
       <div class="line"></div>
-      {{ getComponentName() }}
-      <button type="button" (click)="log()">Update</button>
+      <div class="flex-row flex-justify-between flex-align-center">
+        <div>
+          {{ getComponentName() }}
+        </div>
+        <div class="button-list">
+          <button type="button" (click)="log()" class="secondary">Update</button>
+        </div>
+      </div>
     </div>
 
   `,
-  styles: ``,
+  styles: `
+    :host {
+      display: block;
+      width: 100%;
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class SimpleChildComponent extends BaseComponent {

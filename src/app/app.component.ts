@@ -14,9 +14,15 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
   ],
   template: `
     <main>
-      <div class="component" [ngClass]="getClasses()">
-        {{ getComponentName() }}
-        <button type="button" (click)="log()">Update</button>
+      <div class="component flex-col" [ngClass]="getClasses()">
+        <div class="flex-row flex-justify-between flex-align-center">
+          <div>
+            {{ getComponentName() }}
+          </div>
+          <div class="button-list">
+            <button type="button" (click)="log()" class="secondary">Update</button>
+          </div>
+        </div>
       </div>
       <nav>
         <a [routerLink]="'zone-onpush'" routerLinkActive="active">Zone With push</a>

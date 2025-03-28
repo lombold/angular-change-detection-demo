@@ -10,10 +10,16 @@ import {StateService} from '../../../../../../../services/state.service';
     AsyncPipe
   ],
   template: `
-    <div class="component" [ngClass]="getClasses()">
+    <div class="component flex-col" [ngClass]="getClasses()">
       <div class="line"></div>
-      {{ getComponentName() }}
-      <button type="button" (click)="log()">Update</button>
+      <div class="flex-row flex-justify-between flex-align-center">
+        <div>
+          {{ getComponentName() }}
+        </div>
+        <div class="button-list">
+          <button type="button" (click)="log()" class="secondary">Update</button>
+        </div>
+      </div>
       <pre>
         State Service Values:
         Plain: {{ stateService.valuePlain }}
