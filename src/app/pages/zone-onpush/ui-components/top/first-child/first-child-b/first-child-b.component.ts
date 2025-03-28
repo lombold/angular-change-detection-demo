@@ -11,6 +11,7 @@ import {SimpleChildComponent} from './simple-child/simple-child.component';
   ],
   template: `
     <div class="component" [ngClass]="getClasses()">
+      <div class="line"></div>
       {{ getComponentName() }}
       <button type="button" (click)="log()">Update</button>
       {{ counter }}

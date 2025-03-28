@@ -2,7 +2,7 @@ nav {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  margin: 0 1rem;
+  margin: 0 1rem 1rem 1rem;
   padding: 1rem;
 
   background-color: lightgray;
@@ -39,10 +39,27 @@ nav {
 }
 
 .component {
+  position: relative;
   background: lightblue;
-  border: 1px solid blue;
   padding: 1rem 2rem;
   margin: 1rem;
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 8px;
+  height: 33px;
+  background: gray;
+  transform: translateX(-50%) translateY(-100%);
+}
+
+pre {
+  background-color: lightyellow;
+  padding: 1rem;
+  border: orange 6px dotted;
+  white-space-collapse: preserve-breaks;
 }
 
 .blink-once-a {

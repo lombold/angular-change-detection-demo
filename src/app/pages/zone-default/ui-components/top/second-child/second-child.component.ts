@@ -11,6 +11,7 @@ import {StateService} from '../../../../../services/state.service';
   ],
   template: `
     <div class="component" [ngClass]="getClasses()">
+      <div class="line"></div>
       {{ getComponentName() }}
       <button type="button" (click)="log()">Update</button>
       <pre>

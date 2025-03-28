@@ -13,6 +13,7 @@ import {BaseComponent} from '../../../../base.component';
   ],
   template: `
     <div class="component" [ngClass]="getClasses()">
+      <div class="line"></div>
       {{ getComponentName() }}
       <button type="button" (click)="log()">Update</button>
     </div>
