@@ -18,11 +18,11 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
       <p class="label">Zone Triggers</p>
       <div class="component flex-col blink-once-a" #flashingDiv>
         <div class="flex-row flex-justify-between flex-align-center">
-          <h3>This Flashes when Zone triggers change detection</h3>
+          <h3>Flashing when Zone is triggered</h3>
         </div>
       </div>
       <h2>Ways to trigger Application Ticks</h2>
-      <div class="flex-row">
+      <div class="flex-row flex-wrap">
         <div class="box flex-col">
           <h3>DOM Events</h3>
           <button type="button" (click)="log('Clicked!')">Click!</button>
@@ -41,6 +41,25 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
           <button type="button" (click)="sendRequest()">
             Send Request (3s)
           </button>
+        </div>
+
+        <div class="box flex-col">
+          <h3>requestAnimationFrame()</h3>
+          <pre data-code>
+            requestAnimationFrame(() => [...]);
+          </pre
+          >
+        </div>
+
+        <div class="box flex-col">
+          <h3>MutationObserver / MediaQuery Listensers</h3>
+          <pre data-code>
+            const mediaQueryList = window.matchMedia('(max-width: 600px)');
+            mediaQueryList.addEventListener('change', (event) => {{ '{' }}
+            console.log('Media query matched:', event.matches);
+            {{ '}' }});
+          </pre
+          >
         </div>
       </div>
     </div>
@@ -87,6 +106,7 @@ export class ZoneTriggersComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.setupZoneChangeMonitor();
+    this.listenToMediaQuery();
   }
 
   ngOnDestroy() {}
@@ -131,6 +151,20 @@ export class ZoneTriggersComponent implements OnInit, OnDestroy {
     await new Promise((resolve) => setTimeout(resolve, 3000));
   }
 
-  // 9. Custom events? nah
-  //
+  // 3. requestAnimationFrame
+  public requestAnimationFrame() {
+    const animate = () => {
+      console.log('Animation frame triggered');
+      requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }
+
+  // 4. MutationObserver / MediaQuery Listeners
+  public listenToMediaQuery() {
+    const mediaQueryList = window.matchMedia('(min-width: 1000px)');
+    mediaQueryList.addEventListener('change', (event) => {
+      console.log('Media query matched:', event.matches);
+    });
+  }
 }

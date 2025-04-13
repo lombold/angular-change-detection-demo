@@ -122,6 +122,17 @@ pre {
   padding: 1rem;
   border: orange 6px dotted;
   white-space-collapse: preserve-breaks;
+
+  &[data-code] {
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    background-color: lightgray;
+    color: #333;
+    margin: 0;
+    padding: 1rem;
+    white-space-collapse: preserve-breaks;
+  }
+
 }
 
 .blink-once-a {
@@ -154,6 +165,11 @@ pre {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .flex-align-center {
