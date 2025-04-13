@@ -1,11 +1,9 @@
 export class BaseComponent {
   protected toggle = false;
 
-  constructor(private readonly componentName: string) {
-  }
-  
+  constructor(private readonly componentName: string) {}
+
   getComponentName() {
-    console.log(this.componentName);
     return this.componentName;
   }
 

@@ -28,6 +28,7 @@ import {StateService} from './services/state.service';
       <nav>
         <a [routerLink]="'zone-onpush'" routerLinkActive="active">Zone With push</a>
         <a [routerLink]="'zone-default'" routerLinkActive="active">Zone With default</a>
+        <a [routerLink]="'zone-triggers'" routerLinkActive="active">Zone Triggers</a>
         <div>
           <label for="showInterval">Show Interval: </label>
           <input type="checkbox" name="showInterval"
