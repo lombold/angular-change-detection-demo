@@ -30,10 +30,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+          cache: 'bun'
+      - run: bun ci
+      - run: bun run build --if-present
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
