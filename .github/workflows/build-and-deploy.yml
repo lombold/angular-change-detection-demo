@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 22
       - run: bun install --frozen-lockfile
-      - run: bun run build --configuration=production
+      - run: bun run build --configuration=production --base-href /angular-change-detection-demo/
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
