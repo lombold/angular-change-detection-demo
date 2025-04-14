@@ -11,11 +11,11 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-zone-triggers',
+  selector: 'app-zone-playground',
   changeDetection: ChangeDetectionStrategy.Default,
   template: `
     <div class="run-outside-angular">
-      <p class="label">Zone Triggers</p>
+      <p class="label">Zone Playground</p>
       <div class="component flex-col blink-once-a" #flashingDiv>
         <div class="flex-row flex-justify-between flex-align-center">
           <h3>Flashing when Zone is triggered</h3>
@@ -95,7 +95,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     `,
   ],
 })
-export class ZoneTriggersComponent implements OnInit, OnDestroy {
+export class ZonePlaygroundComponent implements OnInit, OnDestroy {
   private readonly flashingDiv =
     viewChild<ElementRef<HTMLDivElement>>('flashingDiv');
 

@@ -21,42 +21,59 @@ import { StateService } from './services/state.service';
           </div>
         </div>
       </div>
-      <nav>
-        <a [routerLink]="'zone-onpush'" routerLinkActive="active"
-          >Zone With push</a
-        >
-        <a [routerLink]="'zone-default'" routerLinkActive="active"
-          >Zone With default</a
-        >
-        <a [routerLink]="'zone-triggers'" routerLinkActive="active"
-          >Zone Triggers</a
-        >
-        <div>
-          <label for="showInterval">Show Interval: </label>
-          <input
-            type="checkbox"
-            name="showInterval"
-            (change)="setShowInterval($event)"
-          />
+      <nav class="flex-justify-between">
+        <div class="flex-row flex-2-3">
+          <a [routerLink]="'zone-onpush'" routerLinkActive="active">
+            ChangeDetectionStrategy.OnPush
+          </a>
+          <a [routerLink]="'zone-default'" routerLinkActive="active">
+            ChangeDetectionStrategy.Default
+          </a>
+          <a [routerLink]="'zone-playground'" routerLinkActive="active">
+            Zone Playground
+          </a>
         </div>
-        <div>
-          <label for="showStateInfo">Show State Info: </label>
-          <input
-            type="checkbox"
-            name="showStateInfo"
-            (change)="setStateInfo($event)"
-          />
-        </div>
-        @if (stateService.showStateInfo()) {
-          <div>
-            <label for="showMoreInfo">Show More: </label>
-            <input
-              type="checkbox"
-              name="showMoreInfo"
-              (change)="setMoreInfo($event)"
-            />
+        <div class="flex-row flex-1-3">
+          <span><strong>Settings</strong></span>
+          <div class="">
+            <div>
+              <input
+                type="checkbox"
+                name="showInterval"
+                id="showInterval"
+                (change)="setShowInterval($event)"
+              />
+              <label for="showInterval">Show Interval</label>
+            </div>
+            <div class="flex-row">
+              <div>
+                <input
+                  type="checkbox"
+                  name="showStateInfo"
+                  id="showStateInfo"
+                  (change)="setStateInfo($event)"
+                />
+                <label
+                  for="showStateInfo"
+                  title="A service containing a signal, a subject, a plain value and an object containing a value"
+                >
+                  Values Service
+                </label>
+              </div>
+              @if (stateService.showStateInfo()) {
+                <div>
+                  <input
+                    type="checkbox"
+                    name="showMoreInfo"
+                    id="showMoreInfo"
+                    (change)="setMoreInfo($event)"
+                  />
+                  <label for="showMoreInfo">Show More</label>
+                </div>
+              }
+            </div>
           </div>
-        }
+        </div>
       </nav>
       <div class="router-wrapper">
         <router-outlet />

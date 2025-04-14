@@ -16,10 +16,10 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'zone-triggers',
+    path: 'zone-playground',
     loadComponent: () =>
-      import('./pages/zone-triggers/zone-triggers.component').then(
-        (c) => c.ZoneTriggersComponent,
+      import('./pages/zone-playground/zone-playground.component').then(
+        (c) => c.ZonePlaygroundComponent,
       ),
   },
   {
