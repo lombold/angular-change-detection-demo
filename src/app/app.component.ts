@@ -68,7 +68,7 @@ import { StateService } from './services/state.service';
                     id="showMoreInfo"
                     (change)="setMoreInfo($event)"
                   />
-                  <label for="showMoreInfo">Show More</label>
+                  <label for="showMoreInfo">Show Binding</label>
                 </div>
               }
             </div>

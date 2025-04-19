@@ -33,11 +33,8 @@ import { StateService } from '../../../../../../../services/state.service';
           }} {{ stateService.showMoreInfo() ? '{{ valueWrapped.value }}' : '' }}
           Observable: {{
             stateService.valueSubject$$.asObservable() | async
-          }} {{ stateService.showMoreInfo() ? '{{ valueSubject$$ | async
-
-          }}' : '' }}
-        </pre
-        >
+          }} {{ stateService.showMoreInfo() ? '{{ valueSubject$$ | async }}' : '' }}
+        </pre>
       }
     </div>
   `,

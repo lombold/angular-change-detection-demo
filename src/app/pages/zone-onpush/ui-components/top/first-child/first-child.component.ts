@@ -40,7 +40,7 @@ import {StateService} from '../../../../../services/state.service';
 })
 export class FirstChildComponent extends BaseComponent {
   public counter = 0;
-  public intervalId?: number;
+  public intervalId?: any;
 
   constructor(public readonly stateService: StateService, private readonly cd: ChangeDetectorRef) {
     super('FirstChildComponent');
